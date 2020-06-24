@@ -338,8 +338,16 @@ typedef struct _VAEncSequenceParameterBufferHEVC {
         } bits;
         uint32_t value;
     } scc_fields;
+
+    uint32_t    TargetBitRate;
+    uint32_t    InitVBVBufferFullnessInBit;
+    uint32_t    VBVBufferSizeInBit;
+    /** \brief Lookahead depth in frames. */
+    uint8_t     lookahead_depth;
+
     /** \brief Reserved bytes for future use, must be zero */
-    uint32_t   va_reserved[VA_PADDING_MEDIUM - 1];
+    uint8_t                 va_reserved1[3];
+    uint32_t   va_reserved[VA_PADDING_MEDIUM - 5];
     /**@}*/
 } VAEncSequenceParameterBufferHEVC;
 
